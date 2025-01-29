@@ -9,7 +9,7 @@ const initialCompanies: Company[] = [
     isSelected: false,
   },
   {
-    id: 1,
+    id: 2,
     name: "Exemter",
     adress: "г. Москва, Пресненская наб., дом 12, башня 'Федерация'",
     isSelected: false,
@@ -20,6 +20,7 @@ const companiesSlice = createSlice({
   name: "companies",
   initialState: {
     companies: initialCompanies,
+    isAllSelected: false,
   } as CompaniesSate,
   reducers: {
     toggleSelect: (state, action: PayloadAction<number>) => {
@@ -30,10 +31,11 @@ const companiesSlice = createSlice({
         company.isSelected = !company.isSelected;
       }
     },
-    toggleSelectAll: (state, action: PayloadAction<boolean>) => {
+    toggleSelectAll: (state) => {
       state.companies.forEach(
-        (company) => (company.isSelected = action.payload)
+        (company) => (company.isSelected = !state.isAllSelected)
       );
+      state.isAllSelected = !state.isAllSelected;
     },
     // addCompany: (state)
     removeSelected: (state) => {
