@@ -13,4 +13,5 @@ export interface UpdateCompanyPayload {
 
 export interface CompaniesSate {
   companies: Company[];
+  isAllSelected: boolean;
 }
