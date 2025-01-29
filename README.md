@@ -1,30 +1,18 @@
-# React + TypeScript + Vite
+# Тестовое задание на позицию Frontend-разработчика в Адепт
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Создайте одностраничное приложение “Список компаний”, используя библиотеку React.js.  
+Требования: react, redux (redux-toolkit), typescript, остальное на ваше усмотрение, НО стоит использовать минимальное кол-во библиотек (например, таблицу нужно точно сделать самостоятельно, без сторонних библиотек)  
+Дано: имеется таблица со списком компаний. Данные в таблице должны храниться в сторе.  
+Данные для таблицы - фейковые, создать самостоятельно.  
+Шапка таблицы "компании": Чекбокс “Выделить всё”  
+Тело таблицы имеет столбцы: | Чекбокс | Название компании | Адрес  
+При клике по чекбоксу в строке, соответствующая строка выделяется цветом на ваше усмотрение. При клике по чекбоксу “Выделить всё” - выделяются все строки.  
+Все поля таблицы редактируемые.  
+В таблице реализовать механизм добавления/удаления компаний по соответствующим кнопкам. Удаление может быть множественное (если выделены несколько строк).  
+ 
+Готовый̆ проект нужно разместить в репозитории на Github или Gitlab.  
+Будет плюсом: предусмотреть вариант когда компаний может быть 10 000+(желательно предложить вариант без переключения по страницам, динамическая загрузка при скролле)  
+ 
+Примечания:  
+Желательно использовать минимум сторонних библиотек.  
+Дизайн приложения на ваш вкус. Выполнение всех пунктов не является обязательным, но желательным. Чем точнее будет выполнено тестовое задание, тем у вас больше шансов получить положительный ответ.
