@@ -32,6 +32,7 @@ const CompaniesTable = () => {
     <TableWrapper isSelectAll={isSelectAll} handleSelectAll={handleSelectAll}>
       {companies.map((company) => (
         <TableRow
+          key={company.id}
           company={company}
           handleEdit={handleEditRow}
           handleSelect={handleSelectRow}

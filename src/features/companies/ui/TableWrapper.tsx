@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+import { Table } from "../../../common/components/Table/Table";
 
 interface Props {
   isSelectAll: boolean;
@@ -10,20 +11,22 @@ const TableWrapper = ({
   children,
 }: PropsWithChildren<Props>) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <input
-            type="checkbox"
-            checked={isSelectAll}
-            onChange={handleSelectAll}
-          />
-          <th>Название компании</th>
-          <th>Адрес</th>
-        </tr>
-      </thead>
-      <tbody>{children}</tbody>
-    </table>
+    <Table.Root>
+      <Table.Header>
+        <Table.Row>
+          <Table.ColumnHeader>
+            <input
+              type="checkbox"
+              checked={isSelectAll}
+              onChange={handleSelectAll}
+            />
+          </Table.ColumnHeader>
+          <Table.ColumnHeader>Название компании</Table.ColumnHeader>
+          <Table.ColumnHeader>Адрес</Table.ColumnHeader>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>{children}</Table.Body>
+    </Table.Root>
   );
 };
 

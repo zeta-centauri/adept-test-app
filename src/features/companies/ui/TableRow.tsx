@@ -1,4 +1,5 @@
 import { Company, UpdateCompanyPayload } from "../model/types";
+import { Table } from "../../../common/components/Table/Table";
 
 interface Props {
   company: Company;
@@ -8,15 +9,15 @@ interface Props {
 
 const TableRow = ({ company, handleSelect, handleEdit }: Props) => {
   return (
-    <tr>
-      <td>
+    <Table.Row $selected={company.isSelected}>
+      <Table.Cell>
         <input
           type="checkbox"
           checked={company.isSelected}
           onChange={() => handleSelect(company.id)}
         />
-      </td>
-      <td
+      </Table.Cell>
+      <Table.Cell
         contentEditable
         onBlur={(e) =>
           handleEdit({
@@ -27,8 +28,8 @@ const TableRow = ({ company, handleSelect, handleEdit }: Props) => {
         }
       >
         {company.name}
-      </td>
-      <td
+      </Table.Cell>
+      <Table.Cell
         contentEditable
         onBlur={(e) =>
           handleEdit({
@@ -39,8 +40,8 @@ const TableRow = ({ company, handleSelect, handleEdit }: Props) => {
         }
       >
         {company.adress}
-      </td>
-    </tr>
+      </Table.Cell>
+    </Table.Row>
   );
 };
 
