@@ -1,5 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Company, CompaniesSate, UpdateCompanyPayload } from "./types";
+import {
+  Company,
+  CompaniesSate,
+  UpdateCompanyPayload,
+  AddCompanyPayload,
+} from "./types";
 
 const initialCompanies: Company[] = [
   {
@@ -28,6 +33,9 @@ const companiesSlice = createSlice({
         (company) => company.id == action.payload
       );
       if (company) {
+        if (company.isSelected) {
+          state.isAllSelected = false;
+        }
         company.isSelected = !company.isSelected;
       }
     },
@@ -37,9 +45,22 @@ const companiesSlice = createSlice({
       );
       state.isAllSelected = !state.isAllSelected;
     },
-    // addCompany: (state)
+    addCompany: (state, action: PayloadAction<AddCompanyPayload>) => {
+      const newId = state.companies.length
+        ? Math.max(...state.companies.map((c) => c.id)) + 1
+        : 1;
+      state.companies.push({
+        id: newId,
+        name: action.payload.name,
+        adress: action.payload.adress,
+        isSelected: state.isAllSelected,
+      } as Company);
+    },
+
     removeSelected: (state) => {
-      state.companies.filter((company) => !company.isSelected);
+      state.companies = state.companies.filter(
+        (company) => !company.isSelected
+      );
     },
     updateCompany: (state, action: PayloadAction<UpdateCompanyPayload>) => {
       const company = state.companies.find(
@@ -53,6 +74,11 @@ const companiesSlice = createSlice({
 });
 
 const { actions, reducer } = companiesSlice;
-export const { toggleSelect, toggleSelectAll, removeSelected, updateCompany } =
-  actions;
+export const {
+  toggleSelect,
+  toggleSelectAll,
+  removeSelected,
+  addCompany,
+  updateCompany,
+} = actions;
 export default reducer;

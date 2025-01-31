@@ -11,6 +11,9 @@ export interface UpdateCompanyPayload {
   value: string;
 }
 
+export type AddCompanyPayload = Omit<Company, "id" | "isSelected">;
+
+
 export interface CompaniesSate {
   companies: Company[];
   isAllSelected: boolean;
