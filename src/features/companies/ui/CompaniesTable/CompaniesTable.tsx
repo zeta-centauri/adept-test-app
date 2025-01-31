@@ -1,14 +1,14 @@
-import TableWrapper from "./CompaniesTableWrapper";
-import { useAppDispatch } from "../../../app/store";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../../../app/store";
 import {
-  toggleSelect,
   toggleSelectAll,
   updateCompany,
-} from "../model/companiesSlice";
-import { useSelector } from "react-redux";
-import { selectCompanies, selectIsSelectAll } from "../model/selectors";
+  toggleSelect,
+} from "../../model/companiesSlice";
+import { selectCompanies, selectIsSelectAll } from "../../model/selectors";
+import { UpdateCompanyPayload } from "../../model/types";
 import TableRow from "./CompaniesTableRow";
-import { UpdateCompanyPayload } from "../model/types";
+import TableWrapper from "./CompaniesTableWrapper";
 
 const CompaniesTable = () => {
   const dispatch = useAppDispatch();

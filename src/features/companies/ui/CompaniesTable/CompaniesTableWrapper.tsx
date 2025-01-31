@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { Table } from "../../../common/components/Table/Table";
+import { Table } from "../../../../common/components/Table";
 import styled from "styled-components";
 
 interface Props {

@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
-  Company,
   CompaniesSate,
   UpdateCompanyPayload,
   AddCompanyPayload,
 } from "./types";
 import { initialCompanies } from "./initialCompanies";
+import { Company } from "../../../common/types/types";
 
 const companiesSlice = createSlice({
   name: "companies",

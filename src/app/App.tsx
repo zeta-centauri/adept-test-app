@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import CompaniesTable from "../features/companies/ui/CompaniesTable";
-import CompaniesPanel from "../features/companies/ui/CompaniesPanel";
+import CompaniesView from "../features/companies/ui/CompaniesView";
 
 function App() {
   return (
     <Container>
-      <CompaniesTable />
-      <CompaniesPanel />
+      <CompaniesView />
     </Container>
   );
 }

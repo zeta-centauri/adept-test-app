@@ -1,6 +1,7 @@
-import { Company, UpdateCompanyPayload } from "../model/types";
-import { Table } from "../../../common/components/Table/Table";
-import EditableText from "../../../common/components/EditableText/EditableText";
+import { UpdateCompanyPayload } from "../../model/types";
+import { Table } from "../../../../common/components/Table";
+import EditableText from "../../../../common/components/EditableText";
+import { Company } from "../../../../common/types/types";
 
 interface Props {
   company: Company;

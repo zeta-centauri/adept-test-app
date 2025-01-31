@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useAppDispatch } from "../../../app/store";
 import { addCompany, removeSelected } from "../model/companiesSlice";
-import Button from "../../../common/components/Button/Button";
+import Button from "../../../common/components/Button";
 
 const CompaniesPanel = () => {
   const dispatch = useAppDispatch();

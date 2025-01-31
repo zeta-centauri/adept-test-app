@@ -1,9 +1,4 @@
-export interface Company {
-  id: number;
-  name: string;
-  adress: string;
-  isSelected: boolean;
-}
+import { Company } from "../../../common/types/types";
 
 export interface UpdateCompanyPayload {
   id: number;
@@ -12,7 +7,6 @@ export interface UpdateCompanyPayload {
 }
 
 export type AddCompanyPayload = Omit<Company, "id" | "isSelected">;
-
 
 export interface CompaniesSate {
   companies: Company[];

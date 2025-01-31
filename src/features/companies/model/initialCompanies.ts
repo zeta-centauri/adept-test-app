@@ -1,4 +1,4 @@
-import { Company } from "./types";
+import { Company } from "../../../common/types/types";
 
 export const initialCompanies: Company[] = [
   {
