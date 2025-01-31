@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-const TableRoot = styled.table`
-  width: 100%;
+const TableRoot = styled.table<{ $w?: string; $h?: string }>`
+  width: ${({ $w }) => ($w ? $w : "auto")};
+  min-width: 400px;
+  height: ${({ $h }) => ($h ? $h : "auto")};
   padding: 24px;
 
   border-collapse: collapse;
@@ -17,7 +19,7 @@ const TableHeader = styled.thead`
   border-bottom: 1px solid #e4e4e7;
 `;
 
-const ColumnHeader = styled.th`
+const TableColumnHeader = styled.th`
   text-align: start;
   padding: 0.5rem;
 
@@ -30,6 +32,7 @@ const ColumnHeader = styled.th`
 const TableBody = styled.tbody``;
 
 const TableRow = styled.tr<{ $selected?: boolean }>`
+  height: auto;
   td:not(:last-of-type),
   th:not(:last-of-type) {
     border-inline-end-width: 1px;
@@ -39,6 +42,7 @@ const TableRow = styled.tr<{ $selected?: boolean }>`
 `;
 
 const TableCell = styled.td`
+  height: auto;
   padding: 0.5rem;
   border-width: 0px;
   border-style: solid;
@@ -49,7 +53,7 @@ const TableCell = styled.td`
 export const Table = {
   Root: TableRoot,
   Header: TableHeader,
-  ColumnHeader: ColumnHeader,
+  ColumnHeader: TableColumnHeader,
   Body: TableBody,
   Row: TableRow,
   Cell: TableCell,
