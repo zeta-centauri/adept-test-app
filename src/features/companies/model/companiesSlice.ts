@@ -5,21 +5,7 @@ import {
   UpdateCompanyPayload,
   AddCompanyPayload,
 } from "./types";
-
-const initialCompanies: Company[] = [
-  {
-    id: 1,
-    name: "Адепт",
-    adress: "г. Нижний Новгород, пр. Гагарина,27, помещ. 204",
-    isSelected: false,
-  },
-  {
-    id: 2,
-    name: "Exemter",
-    adress: "г. Москва, Пресненская наб., дом 12, башня 'Федерация'",
-    isSelected: false,
-  },
-];
+import { initialCompanies } from "./initialCompanies";
 
 const companiesSlice = createSlice({
   name: "companies",
