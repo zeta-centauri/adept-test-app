@@ -1,4 +1,4 @@
-import TableWrapper from "./TableWrapper";
+import TableWrapper from "./CompaniesTableWrapper";
 import { useAppDispatch } from "../../../app/store";
 import {
   toggleSelect,
@@ -7,7 +7,7 @@ import {
 } from "../model/companiesSlice";
 import { useSelector } from "react-redux";
 import { selectCompanies, selectIsSelectAll } from "../model/selectors";
-import TableRow from "./TableRow";
+import TableRow from "./CompaniesTableRow";
 import { UpdateCompanyPayload } from "../model/types";
 
 const CompaniesTable = () => {
