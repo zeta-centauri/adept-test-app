@@ -1,17 +1,36 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   CompaniesSate,
   UpdateCompanyPayload,
   AddCompanyPayload,
 } from "./types";
-import { initialCompanies } from "./initialCompanies";
 import { Company } from "../../../common/types/types";
+import { fetchCompanies } from "../api/companiesApi";
+
+export const getCompanies = createAsyncThunk(
+  "companies/getCompanies",
+  async ({
+    page,
+    limit,
+    isAllSelected,
+  }: {
+    page: number;
+    limit: number;
+    isAllSelected: boolean;
+  }) => {
+    return await fetchCompanies(page, limit, isAllSelected);
+  }
+);
 
 const companiesSlice = createSlice({
   name: "companies",
   initialState: {
-    companies: initialCompanies,
+    companies: [],
+    page: 1,
+    hasMore: true,
     isAllSelected: false,
+    isLoading: false,
+    error: null,
   } as CompaniesSate,
   reducers: {
     toggleSelect: (state, action: PayloadAction<number>) => {
@@ -56,6 +75,26 @@ const companiesSlice = createSlice({
         company[action.payload.updatedField] = action.payload.value;
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCompanies.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getCompanies.fulfilled, (state, action) => {
+        state.isLoading = false;
+        if (action.payload.length === 0) {
+          state.hasMore = false;
+        } else {
+          state.companies.push(...action.payload);
+          state.page += 1;
+        }
+      })
+      .addCase(getCompanies.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || "Ошибка загрузки данных";
+      });
   },
 });
 

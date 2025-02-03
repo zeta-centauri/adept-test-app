@@ -11,4 +11,8 @@ export type AddCompanyPayload = Omit<Company, "id" | "isSelected">;
 export interface CompaniesSate {
   companies: Company[];
   isAllSelected: boolean;
+  isLoading: boolean;
+  error: null | string;
+  page: number;
+  hasMore: boolean;
 }
